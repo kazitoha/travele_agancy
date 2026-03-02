@@ -35,6 +35,13 @@
             'patterns' => ['vendors.*'],
             'icon_theme' => 'orange',
         ],
+        [
+            'label' => 'Customers',
+            'icon' => 'users',
+            'route' => 'customers.index',
+            'patterns' => ['customers.*'],
+            'icon_theme' => 'emerald',
+        ],
     ];
 @endphp
 

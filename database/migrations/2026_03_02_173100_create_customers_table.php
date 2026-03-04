@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
-            $table->string('passport_number', 100);
+            $table->string('passport_number', 100)->nullable();
             $table->string('name');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('phone', 30);
-            $table->date('date_of_birth');
-            $table->text('address');
+            $table->date('date_of_birth')->nullable();
+            $table->text('address')->nullable();
             $table->timestamps();
             $table->foreignIdFor(Companies::class, 'company_id')->constrained('companies')->cascadeOnDelete();
 

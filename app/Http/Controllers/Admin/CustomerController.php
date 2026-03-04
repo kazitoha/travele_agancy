@@ -24,16 +24,16 @@ class CustomerController extends Controller
     {
         $validated = $request->validate([
             'passport_number' => [
-                'required',
+                'nullable',
                 'string',
                 'max:100',
                 'unique:customers,passport_number',
             ],
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email', 'max:255'],
+            'email' => ['nullable', 'email', 'max:255'],
             'phone' => ['required', 'string', 'max:30'],
-            'date_of_birth' => ['required', 'date', 'before_or_equal:today'],
-            'address' => ['required', 'string', 'max:2000'],
+            'date_of_birth' => ['nullable', 'date', 'before_or_equal:today'],
+            'address' => ['nullable', 'string', 'max:2000'],
         ]);
 
         Customers::create($validated);

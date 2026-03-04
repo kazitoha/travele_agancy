@@ -149,5 +149,6 @@ Route::middleware(['auth', 'ensure.permission'])->group(function () {
 
 
 Route::get('/', function () {
-    return view('website/home');
+    return redirect()->route('login');
+    // return view('website/home');
 });

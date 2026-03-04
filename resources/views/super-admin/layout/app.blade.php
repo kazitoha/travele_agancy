@@ -128,7 +128,7 @@
 
                     <!-- Footer -->
                     <div class="mt-8 pb-6 text-center text-xs text-slate-400">
-                        © 2026 Task Manager • Developed by Zentrik Technology Ltd.
+                        © 2026 Travel Agency • Developed by Zentrik Technology Ltd.
                     </div>
                 </main>
             </div>

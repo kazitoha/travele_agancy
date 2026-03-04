@@ -60,41 +60,12 @@
 
         {{-- Add payment --}}
         <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 class="text-base font-bold text-slate-900">Add Payment</h2>
-
-            <form class="mt-4 grid gap-4 sm:grid-cols-3"
-                  method="POST"
-                  action="{{ route('ticket_purchases.add_payment', $ticketPurchase->id) }}">
-                @csrf
-
-                <div>
-                    <label class="text-sm font-semibold text-slate-700">Account</label>
-                    <select name="account_id"
-                            class="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300">
-                        <option value="">Select account</option>
-                        @foreach ($accounts as $account)
-                            <option value="{{ $account->id }}" @selected(old('account_id') == $account->id)>
-                                {{ $account->name }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div>
-                    <label class="text-sm font-semibold text-slate-700">Paid Amount</label>
-                    <input type="number" step="0.01" min="0.01" name="paid"
-                           value="{{ old('paid') }}"
-                           class="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-300"
-                           placeholder="0.00">
-                </div>
-
                 <div class="flex items-end">
-                    <button type="submit"
+                    <a href="{{route('ticket_purchases.payment_history.add',$ticketPurchase->id)}}" type="submit"
                             class="w-full rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800">
                         Add Payment
-                    </button>
+                    </a>
                 </div>
-            </form>
         </div>
 
         {{-- History table --}}

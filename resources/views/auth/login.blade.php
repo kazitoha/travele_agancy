@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ config('app.name', 'Task Manager') }} — Sign in</title>
+    <title>{{ config('app.name', 'Travel Agency') }} — Sign in</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -38,7 +38,7 @@
                                 <span class="text-sm font-bold">TM</span>
                             </div>
                             <div>
-                                <div class="text-lg font-bold leading-tight">Task Manager</div>
+                                <div class="text-lg font-bold leading-tight">Travel Agency</div>
                                 <div class="text-xs text-white/70">Admin Platform</div>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                         </div>
 
                         <div class="mt-10 text-xs text-white/50">
-                            © 2026 Task Manager. All rights reserved.
+                            © 2026 Travel Agency. All rights reserved.
                         </div>
                     </div>
                 </div>
@@ -98,7 +98,7 @@
                                 <span class="text-sm font-bold">TM</span>
                             </div>
                             <div>
-                                <div class="text-base font-bold leading-tight">Task Manager</div>
+                                <div class="text-base font-bold leading-tight">Travel Agency</div>
                                 <div class="text-xs text-slate-500">Admin Platform</div>
                             </div>
                         </div>

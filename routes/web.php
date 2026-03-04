@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\TicketPurchaseController;
 use App\Http\Controllers\Admin\TicketSaleController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\VendorController;
 use App\Http\Controllers\SuperAdmin\AdminController as SuperAdminAdminController;
 use Illuminate\Support\Facades\Route;
@@ -44,9 +45,7 @@ Route::prefix('super-admin')->name('superadmin.')->group(function () {
 
 Route::middleware(['auth', 'ensure.permission'])->group(function () {
 
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/accounts', [AccountController::class, 'index'])->name('accounts.index');
     Route::post('/accounts', [AccountController::class, 'store'])->name('accounts.store');
@@ -65,6 +64,8 @@ Route::middleware(['auth', 'ensure.permission'])->group(function () {
     Route::get('/vendors/{vendor}/edit', [VendorController::class, 'edit'])->name('vendors.edit');
     Route::put('/vendors/{vendor}', [VendorController::class, 'update'])->name('vendors.update');
     Route::delete('/vendors/{vendor}', [VendorController::class, 'destroy'])->name('vendors.destroy');
+    Route::get('/vendors/{vendor}/history', [VendorController::class, 'history'])->name('vendors.history');
+
 
     Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');
     Route::post('/customers', [CustomerController::class, 'store'])->name('customers.store');
@@ -84,10 +85,15 @@ Route::middleware(['auth', 'ensure.permission'])->group(function () {
     Route::get('/ticket-purchases/{ticketPurchase}/payment-history', [TicketPurchaseController::class, 'paymentHistory'])
         ->name('ticket_purchases.payment_history');
 
-    Route::post('/ticket-purchases/{ticketPurchase}/add-payment', [TicketPurchaseController::class, 'addPayment'])
-        ->name('ticket_purchases.add_payment');
+
 
     // History edit
+    Route::get('/ticket-purchases/{ticketPurchase}/payment-history/add', [TicketPurchaseController::class, 'addPaymentForm'])
+        ->name('ticket_purchases.payment_history.add');
+
+    Route::post('/ticket-purchases/{ticketPurchase}/add-payment', [TicketPurchaseController::class, 'addPayment'])
+        ->name('ticket_purchases.payment_history.store');
+
     Route::get('/ticket-purchases/payment-history/{history}/edit', [TicketPurchaseController::class, 'editPaymentHistory'])
         ->name('ticket_purchases.payment_history.edit');
 

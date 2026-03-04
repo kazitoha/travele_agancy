@@ -172,7 +172,7 @@
     <div class="flex items-center gap-3 px-6 py-5">
         <div class="grid h-10 w-10 place-items-center rounded-xl bg-slate-900 text-white">TM</div>
         <div class="leading-tight">
-            <div class="text-sm font-semibold">Task Manager</div>
+            <div class="text-sm font-semibold">Travel Agency</div>
             <div class="text-xs text-slate-500">Admin Panel</div>
         </div>
     </div>

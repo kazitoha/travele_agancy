@@ -80,12 +80,14 @@ class TicketSaleController extends Controller
                 'issue_date' => $validated['issue_date'] ?? null,
             ]);
 
-            TicketSalesPaymentHistory::create([
-                'ticket_sales_id' =>  $ticketSale->id,
-                'account_id' => $validated['account_id'] ?? null,
-                'paid' => $validated['paid'] ?? 0,
-                'due' => $due,
-            ]);
+            if ($validated['paid'] > 0) {
+                TicketSalesPaymentHistory::create([
+                    'ticket_sales_id' =>  $ticketSale->id,
+                    'account_id' => $validated['account_id'] ?? null,
+                    'paid' => $validated['paid'] ?? 0,
+                    'due' => $due,
+                ]);
+            }
 
             TicketPurchases::find($validated['purchase_id'])
                 ->update(['customer_id' => $validated['customer_id'] ?? null]);
@@ -222,15 +224,6 @@ class TicketSaleController extends Controller
             ->route('ticket_sales.index')
             ->with('success', 'Ticket sale deleted successfully.');
     }
-
-
-
-
-
-
-
-
-
 
     public function paymentHistory(int $ticketSale): View
     {

@@ -93,6 +93,10 @@
                                         <td class="px-4 py-3 text-xs text-slate-500">{{ $vendor->created_at?->format('M j, Y g:i A') }}</td>
                                         <td class="px-4 py-3">
                                             <div class="flex items-center justify-end gap-2">
+                                                <a href="{{ route('vendors.history', $vendor->id) }}"
+                                                    class="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50">
+                                                    History
+                                                </a>
                                                 <a href="{{ route('vendors.edit', $vendor->id) }}"
                                                     class="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50">
                                                     Edit

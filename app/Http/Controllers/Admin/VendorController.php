@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\TicketPurchases;
 use App\Models\Vendors;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -70,5 +71,31 @@ class VendorController extends Controller
         return redirect()
             ->route('vendors.index')
             ->with('success', 'Vendor deleted successfully.');
+    }
+
+
+    public function history(Request $request, int $vendor): View
+    {
+        $vendor = Vendors::findOrFail($vendor);
+
+        $ticketPurchases = TicketPurchases::with([
+            'customer:id,name',
+            'account:id,name',
+        ])
+            ->where('vendor_id', $vendor->id)
+            ->latest()
+            ->get();
+
+        $totalTickets = $ticketPurchases->count();
+        $totalPaid = (float) $ticketPurchases->sum('paid_amount');
+        $totalDue = (float) $ticketPurchases->sum('due_amount');
+
+        return view('admin.vendors.history', [
+            'vendor' => $vendor,
+            'ticketPurchases' => $ticketPurchases,
+            'totalTickets' => $totalTickets,
+            'totalPaid' => $totalPaid,
+            'totalDue' => $totalDue,
+        ]);
     }
 }

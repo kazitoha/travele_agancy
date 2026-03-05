@@ -32,7 +32,6 @@ class TicketPurchaseController extends Controller
             'customer:id,name',
             'account:id,name',
         ])
-            ->whereDoesntHave('ticketSale')
             ->latest()
             ->get();
 

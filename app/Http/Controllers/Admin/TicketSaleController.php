@@ -26,8 +26,13 @@ class TicketSaleController extends Controller
 
         $purchases = TicketPurchases::with([
             'vendor:id,name',
-            'customer:id,name'
+            'customer:id,name',
         ])
+            ->whereNotExists(function ($q) {
+                $q->selectRaw(1)
+                    ->from('ticket_sales')
+                    ->whereColumn('ticket_sales.purchase_id', 'ticket_purchases.id');
+            })
             ->latest()
             ->get();
 

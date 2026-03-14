@@ -24,9 +24,9 @@ class VendorController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email', 'max:255'],
+            'email' => ['nullable', 'email', 'max:255'],
             'mobile' => ['required', 'string', 'max:30'],
-            'address' => ['required', 'string', 'max:2000'],
+            'address' => ['nullable', 'string', 'max:2000'],
         ]);
 
         Vendors::create($validated);

@@ -42,22 +42,20 @@
                     <div>
                         <label class="text-sm font-semibold text-slate-700">Email</label>
                         <input type="email" name="email" value="{{ old('email') }}"
-                            class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm outline-none ring-blue-200 focus:border-blue-300 focus:ring-4"
-                            required>
+                            class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm outline-none ring-blue-200 focus:border-blue-300 focus:ring-4">
                     </div>
 
                     <div>
                         <label class="text-sm font-semibold text-slate-700">Mobile</label>
                         <input type="text" name="mobile" value="{{ old('mobile') }}"
-                            class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm outline-none ring-blue-200 focus:border-blue-300 focus:ring-4"
-                            required>
+                            class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm outline-none ring-blue-200 focus:border-blue-300 focus:ring-4" required>
                     </div>
 
                     <div>
                         <label class="text-sm font-semibold text-slate-700">Address</label>
                         <textarea name="address" rows="3"
                             class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm outline-none ring-blue-200 focus:border-blue-300 focus:ring-4"
-                            required>{{ old('address') }}</textarea>
+                            >{{ old('address') }}</textarea>
                     </div>
 
                     <button type="submit"

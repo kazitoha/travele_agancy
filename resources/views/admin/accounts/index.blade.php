@@ -32,7 +32,6 @@
 
                 <form class="mt-5 space-y-4" method="POST" action="{{ route('accounts.store') }}">
                     @csrf
-
                     <div>
                         <label class="text-sm font-semibold text-slate-700">Account name</label>
                         <input type="text" name="name" value="{{ old('name') }}"

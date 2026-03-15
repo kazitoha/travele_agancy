@@ -80,6 +80,7 @@ class TicketPurchaseController extends Controller
         $validated = $request->validate([
             'vendor_id'    => ['nullable', Rule::exists('vendors', 'id')],
             'customer_id'  => ['nullable', Rule::exists('customers', 'id')],
+            'person'       => ['nullable', 'integer', 'min:1'],
             'account_id'   => ['nullable', Rule::exists('accounts', 'id')],
             'flight_date'  => ['required', 'date'],
             'sector'       => ['required', 'string', 'max:255'],
@@ -112,6 +113,7 @@ class TicketPurchaseController extends Controller
             $purchase = TicketPurchases::create([
                 'vendor_id'   => $validated['vendor_id'] ?? null,
                 'customer_id' => $validated['customer_id'] ?? null,
+                'person'      => $validated['person'] ?? null,
                 'account_id'  => $validated['account_id'] ?? null,
                 'flight_date' => $validated['flight_date'],
                 'sector'      => $validated['sector'],
@@ -167,6 +169,7 @@ class TicketPurchaseController extends Controller
         $baseValidated = $request->validate([
             'vendor_id'   => ['nullable', Rule::exists('vendors', 'id')],
             'customer_id' => ['nullable', Rule::exists('customers', 'id')],
+            'person'      => ['nullable', 'integer', 'min:1'],
             'flight_date' => ['required', 'date'],
             'sector'      => ['required', 'string', 'max:255'],
             'carrier'     => ['required', 'string', 'max:255'],
@@ -188,6 +191,7 @@ class TicketPurchaseController extends Controller
                 $ticketPurchase->update([
                     'vendor_id'   => $baseValidated['vendor_id'] ?? null,
                     'customer_id' => $baseValidated['customer_id'] ?? null,
+                    'person'      => $baseValidated['person'] ?? null,
                     'flight_date' => $baseValidated['flight_date'],
                     'sector'      => $baseValidated['sector'],
                     'carrier'     => $baseValidated['carrier'],
@@ -271,6 +275,7 @@ class TicketPurchaseController extends Controller
             $ticketPurchase->update([
                 'vendor_id'   => $baseValidated['vendor_id'] ?? null,
                 'customer_id' => $baseValidated['customer_id'] ?? null,
+                'person'      => $baseValidated['person'] ?? null,
                 'account_id'  => $payValidated['account_id'] ?? null,
                 'flight_date' => $baseValidated['flight_date'],
                 'sector'      => $baseValidated['sector'],

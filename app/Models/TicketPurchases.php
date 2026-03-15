@@ -15,6 +15,7 @@ class TicketPurchases extends Model
     protected $fillable = [
         'vendor_id',
         'customer_id',
+        'person',
         'account_id',
         'flight_date',
         'sector',

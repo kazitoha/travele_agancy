@@ -143,6 +143,13 @@
                                 </div>
 
                                 <div>
+                                    <label class="text-sm font-semibold text-slate-700">Person</label>
+                                    <input type="number" name="person" min="1" value="{{ old('person') }}"
+                                        placeholder="How many person"
+                                        class="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 outline-none ring-blue-200 transition focus:border-blue-300 focus:bg-white focus:ring-4">
+                                </div>
+
+                                <div>
                                     <label class="text-sm font-semibold text-slate-700">Account (payment from)</label>
                                     <select name="account_id"
                                         class="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 outline-none ring-blue-200 transition focus:border-blue-300 focus:bg-white focus:ring-4">
@@ -175,14 +182,14 @@
 
                                 <div>
                                     <label class="text-sm font-semibold text-slate-700">Net fare</label>
-                                    <input type="number" name="net_fare" step="0.01" min="0" value="{{ old('net_fare') }}" required
-                                        class="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 outline-none ring-blue-200 transition focus:border-blue-300 focus:bg-white focus:ring-4">
+                                    <input  name="net_fare" step="0.01" min="0" value="{{ old('net_fare') }}" required
+                                        class="mt-2 w-full rounded-2xl amount-input border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 outline-none ring-blue-200 transition focus:border-blue-300 focus:bg-white focus:ring-4">
                                 </div>
 
                                 <div>
                                     <label class="text-sm font-semibold text-slate-700">Paid</label>
-                                    <input type="number" name="paid_amount" step="0.01" min="0" value="{{ old('paid_amount', 0) }}"
-                                        class="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 outline-none ring-blue-200 transition focus:border-blue-300 focus:bg-white focus:ring-4">
+                                    <input type="number"  name="paid_amount" step="0.01" min="0" value="{{ old('paid_amount', 0) }}"
+                                        class="mt-2 w-full amount-input rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 outline-none ring-blue-200 transition focus:border-blue-300 focus:bg-white focus:ring-4">
                                 </div>
 
                                 <div>
